@@ -101,7 +101,7 @@ var IndecisionsApp = function (_React$Component) {
                     hasOptions: this.state.options.length > 0 ? true : false,
                     handlePick: this.handlePick }),
                 React.createElement(Options, {
-                    optionSelections: this.state.options,
+                    options: this.state.options,
                     handleDeleteOptions: this.handleDeleteOptions,
                     handleDeleteOption: this.handleDeleteOption
                 }),
@@ -112,10 +112,6 @@ var IndecisionsApp = function (_React$Component) {
 
     return IndecisionsApp;
 }(React.Component);
-
-IndecisionsApp.defaultProps = {
-    options: []
-};
 
 var Header = function Header(props) {
     return React.createElement(
@@ -166,7 +162,7 @@ var Options = function Options(props) {
             null,
             'Please add an option to get started!'
         ),
-        props.optionSelections.map(function (option) {
+        props.options.map(function (option) {
             return React.createElement(Option, {
                 key: option,
                 optionText: option,

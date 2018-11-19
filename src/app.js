@@ -73,7 +73,7 @@ class IndecisionsApp extends React.Component{
                     hasOptions={this.state.options.length > 0 ? true : false}
                     handlePick={this.handlePick} />
                 <Options 
-                    optionSelections={this.state.options}
+                    options={this.state.options}
                     handleDeleteOptions ={this.handleDeleteOptions}
                     handleDeleteOption = {this.handleDeleteOption}
                 />
@@ -81,10 +81,6 @@ class IndecisionsApp extends React.Component{
             </div>
         );
     }
-}
-
-IndecisionsApp.defaultProps = {
-    options : []
 }
 
 const Header = (props) => {  
@@ -111,14 +107,13 @@ const Action = (props) => {
     ); 
 }
 
-
 const Options = (props) => {
     return (
         <div>
             <button onClick={props.handleDeleteOptions}>Remove All</button>
              {props.options.length ===0 && <p>Please add an option to get started!</p>}
              {
-                 props.optionSelections.map((option)=>
+                 props.options.map((option)=>
                  <Option 
                  key={option} 
                  optionText={option}
