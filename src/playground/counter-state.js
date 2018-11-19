@@ -8,32 +8,36 @@ class Counter extends React.Component{
         this.subractOne = this.subractOne.bind(this);
         this.reset = this.reset.bind(this);
         this.state = {
-            count : props.count
+            count : 0
         }
     }
 
+    componentDidMount(){
+
+        const thisCount = localStorage.getItem('count');
+        const count = parseInt(thisCount,10);
+
+        if(!isNaN(count)){
+            this.setState(()=>({count}))
+        }
+    }
+
+    componentDidUpdate(prevProps,prevState){
+       if(prevProps.count !== this.state.count){
+            localStorage.setItem('count',this.state.count)
+       }
+    }
+
     addOne(){
-        this.setState((prevState)=>{
-            return {
-                count: prevState.count + 1
-            };
-         });
+        this.setState((prevState)=>({ count: parseInt(prevState.count,10) + 1}));
     }
 
     subractOne(){
-        this.setState((prevState)=>{
-            return {
-                count: prevState.count - 1
-            };
-         });
+        this.setState((prevState)=>({  count: parseInt(prevState.count,10) - 1}));
     }
 
     reset(){
-        this.setState(()=>{
-            return {
-                count: 0
-            };
-         });
+        this.setState(()=>({count: 0}));
     }
     render(){
         return (

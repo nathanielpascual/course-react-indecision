@@ -21,7 +21,7 @@ var IndecisionsApp = function (_React$Component) {
         _this.handleDeleteOption = _this.handleDeleteOption.bind(_this);
         _this.handlePick = _this.handlePick.bind(_this);
         _this.state = {
-            options: props.options
+            options: []
         };
         return _this;
     }
