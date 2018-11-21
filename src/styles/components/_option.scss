@@ -1,7 +1,7 @@
 .option{
     display : flex;
     justify-content: space-between;
-    padding:$l-size $m-size;
+    padding:$m-size $s-size;
     border-bottom:1px solid lighten($light-blue, 10%);
 }
 
@@ -12,3 +12,8 @@
     margin : 0;
     word-break: break-all;
 }
+@media(min-width : $desktop-breakpoint){
+    .option {
+        padding:$m-size $m-size;
+    }
+ }
